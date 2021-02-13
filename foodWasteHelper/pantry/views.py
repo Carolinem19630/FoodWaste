@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django import forms
 from django.urls import reverse
 from django.http import HttpResponseRedirect
+from django.core.mail import send_mail
+import datetime
 
 items = []
 user_email = ''
@@ -16,12 +18,13 @@ class NewAmountForm(forms.Form):
     amount = forms.CharField(label="Amount")
 
 class NewExpirForm(forms.Form):
-    expir = forms.CharField(label="Expiration Date")
+    expir = forms.DateField(label="Expiration Date")
 
 class NewEmailForm(forms.Form):
-    amount = forms.CharField(label="Email")
+    email = forms.CharField(label="Email")
 
 def index(request):
+    notify(request)
     return render(request, 'pantry/index.html', {
         "items": items
     })
@@ -170,3 +173,12 @@ def change(request):
         "form1": NewFoodItemForm(),
         'form2': NewAmountForm()
     })
+
+def notify(request):
+    now = datetime.datetime.now()
+    for row in items:
+        if (row['expir'].month == now.month and row['expir'].day == now.day and row['expir'].year == now.year):
+            send_mail('Upcoming Food Expiration',
+              'Hello!\n\n' + row['item'].capitalize() + ' in your food pantry is about to expire.',
+              None,
+              [user_email])
