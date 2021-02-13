@@ -1,9 +1,26 @@
 {% extends "pantry/layout.html" %}
 
 {% block body %}
+    <h1>Welcome to your Food Waste Helper!</h1>
+    <hr>
+    <p>"In the United States, food waste is estimated at 
+    between 30–40 percent of the food supply. This figure, based on 
+    estimates from USDA’s Economic Research Service of 31 percent 
+    food loss at the retail and consumer levels, corresponded to 
+    approximately 133 billion pounds and $161 billion worth of food
+    in 2010. Wasted food is the single largest category of material 
+    placed in municipal landfills and represents nourishment 
+    that could have helped feed families in need." <br> -U.S. Food
+    & Drug Administration</p>
+    <p>Consumers can help reduce their food waste by keeping their
+    food organized and making sure to eat foods before they expire.
+    The Food Waste Helper can help you and your family reduce food
+    waste by keeping track of all of your foods and their 
+    expiration dates.</p>
     <a href="{% url 'pantry:add' %}">Add a New Food Item</a>
     <br>
     <a href="{% url 'pantry:remove' %}">Remove a Food Item</a>
+    <hr>
     <table style="width:100%">
       <tr>
         <th>Item</th>

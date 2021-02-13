@@ -1,7 +1,7 @@
 {% extends "pantry/layout.html" %}
 
 {% block body %}
-    <h1>Remove Food Item:</h1>
+    <h2>Remove Food Item:</h2>
     <form action="{% url 'pantry:remove' %}" method="post">
       {% csrf_token %}
       <ul id="fieldList">
