@@ -10,7 +10,7 @@ user_email = ''
 # Create your views here.
 
 class NewFoodItemForm(forms.Form):
-    food_item = forms.CharField(label="New Food Item")
+    food_item = forms.CharField(label="Food Item")
 
 class NewAmountForm(forms.Form):
     amount = forms.CharField(label="Amount")
@@ -131,4 +131,42 @@ def email(request):
 
     return render(request, "pantry/email.html", {
         "form1": NewEmailForm()
+    })
+
+def change(request):
+
+    # Check if method is POST
+    if request.method == "POST":
+
+        # Take in the data the user submitted and save it as form
+        form1 = NewFoodItemForm(request.POST)
+        form2 = NewAmountForm(request.POST)
+
+        # Check if form data is valid (server-side)
+        if (form1.is_valid() and form2.is_valid()):
+
+            # Isolate the item from the 'cleaned' version of form data
+            food_item = form1.cleaned_data["food_item"]
+            amount = form2.cleaned_data["amount"]
+
+            # change the amount of the item in our items
+            for row in items:
+                if row['item'].lower() == food_item.lower():
+                    row['amount'] = amount
+                    break
+
+            # Redirect user to list of tasks
+            return HttpResponseRedirect(reverse("pantry:index"))
+
+        else:
+
+            # If the form is invalid, re-render the page with existing information.
+            return render(request, "pantry/change.html", {
+                "form1": form1,
+                'form2': form2
+            })
+
+    return render(request, "pantry/change.html", {
+        "form1": NewFoodItemForm(),
+        'form2': NewAmountForm()
     })

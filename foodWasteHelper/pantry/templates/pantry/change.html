@@ -1,0 +1,23 @@
+{% extends "pantry/layout.html" %}
+
+{% block body %}
+    <h2>Change Amount of Food Item:</h2>
+    <p>Enter the name of a food currently in the pantry and the new 
+    amount to store it at. Make sure that the food item is spelled 
+    exactly as it is currently stored.
+    </p>
+    <form action="{% url 'pantry:change' %}" method="post">
+      {% csrf_token %}
+      <ul id="fieldList">
+        <li>
+          {{ form1 }}
+        </li>
+        <li>
+          {{ form2 }}
+        </li>
+      </ul>
+        <input type="submit">
+    </form>
+    <hr>
+    <a href="{% url 'pantry:index' %}">View Pantry</a>
+{% endblock %}
