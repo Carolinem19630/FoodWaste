@@ -10,16 +10,16 @@ user_email = ''
 # Create your views here.
 
 class NewFoodItemForm(forms.Form):
-    food_item = forms.CharField(label="Food Item")
+    food_item = forms.CharField(label="New Food Item")
 
 class NewAmountForm(forms.Form):
     amount = forms.CharField(label="Amount")
 
 class NewExpirForm(forms.Form):
-    expir = forms.DateField(label="Expiration Date")
+    expir = forms.CharField(label="Expiration Date")
 
 class NewEmailForm(forms.Form):
-    email = forms.CharField(label="User Email")
+    amount = forms.CharField(label="Email")
 
 def index(request):
     return render(request, 'pantry/index.html', {
@@ -46,7 +46,7 @@ def add(request):
             amount = form2.cleaned_data["amount"]
             expir = form3.cleaned_data["expir"]
 
-            # Add the new food item to our list of items
+            # Add the new item to our list of items
             new_row = {'item': food_item, 'amount': amount, 'expir': expir}
             items.append(new_row)
 
@@ -68,8 +68,6 @@ def add(request):
         'form3': NewExpirForm()
     })
 
-# remove a food item:
-
 def remove(request):
 
     # Check if method is POST
@@ -84,13 +82,13 @@ def remove(request):
             # Isolate the item from the 'cleaned' version of form data
             food_item = form1.cleaned_data["food_item"]
 
-            # Remove the food item from our list of items
+            # Remove the item to our list of items
             for row in items:
                 if row['item'].lower() == food_item.lower():
                     items.remove(row)
                     break
 
-            # Redirect user to list of items
+            # Redirect user to list of tasks
             return HttpResponseRedirect(reverse("pantry:index"))
 
         else:
@@ -104,35 +102,33 @@ def remove(request):
         "form1": NewFoodItemForm()
     })
 
-# link a user email:
-
 def email(request):
 
     # Check if method is POST
     if request.method == "POST":
 
         # Take in the data the user submitted and save it as form
-        form = NewEmailForm(request.POST)
+        form1 = NewEmailForm(request.POST)
 
         # Check if form data is valid (server-side)
-        if (form.is_valid()):
+        if (form1.is_valid()):
 
-            # Isolate the email from the 'cleaned' version of form data
-            email = form.cleaned_data["email"]
+            # Isolate the item from the 'cleaned' version of form data
+            email = form1.cleaned_data["email"]
 
-            # save the user email
+            # save the email
             user_email = email
 
-            # Redirect user to the pantry
+            # Redirect user to list of tasks
             return HttpResponseRedirect(reverse("pantry:index"))
 
         else:
 
             # If the form is invalid, re-render the page with existing information.
             return render(request, "pantry/email.html", {
-                "form": form
+                "form1": form1
             })
 
     return render(request, "pantry/email.html", {
-        "form": NewEmailForm()
+        "form1": NewEmailForm()
     })
