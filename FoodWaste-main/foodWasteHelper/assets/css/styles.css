@@ -1,0 +1,64 @@
+body {
+    background-color: palegreen;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+h1 {
+    text-align: center;
+    font-family: verdana;
+}
+
+p {
+    font-family: verdana;
+}
+
+a {
+    font-family: verdana;
+}
+
+form { 
+    font-family: verdana; 
+}
+
+ul { 
+    font-family: verdana;
+}
+
+li { 
+    font-family: verdana; 
+}
+
+input {
+font-family: verdana;
+color: darkslategrey;
+background-color: white; 
+}
+
+th {
+font-family: verdana;
+color: white;
+background-color: darkslategrey;
+}
+
+tr {
+font-size: 82%;
+font-family: verdana;
+color: darkslategrey;
+background-color: white;
+}
+
+#item {
+    background-color:tomato;
+} 
+
+#quantity {
+    background-color:yellow;
+}
+
+#exp_date {
+    background-color:greenyellow;
+}

@@ -1,0 +1,22 @@
+{% extends "pantry/layout.html" %}
+
+{% block body %}
+    <h2>Add Food Item:</h2>
+    <form action="{% url 'pantry:add' %}" method="post">
+      {% csrf_token %}
+      <ul id="fieldList">
+        <li>
+          {{ form1 }}
+        </li>
+        <li>
+          {{ form2 }}
+        </li>
+        <li>
+          {{ form3 }}
+        </li>
+      </ul>
+        <input type="submit">
+    </form>
+    <hr>
+    <a href="{% url 'pantry:index' %}">View Pantry</a>
+{% endblock %}
