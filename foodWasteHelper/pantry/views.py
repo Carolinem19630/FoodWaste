@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect
 
 items = []
+user_email = ''
 
 # Create your views here.
 
@@ -16,6 +17,9 @@ class NewAmountForm(forms.Form):
 
 class NewExpirForm(forms.Form):
     expir = forms.DateField(label="Expiration Date")
+
+class NewEmailForm(forms.Form):
+    email = forms.CharField(label="User Email")
 
 def index(request):
     return render(request, 'pantry/index.html', {
@@ -98,4 +102,37 @@ def remove(request):
 
     return render(request, "pantry/remove.html", {
         "form1": NewFoodItemForm()
+    })
+
+# link a user email:
+
+def email(request):
+
+    # Check if method is POST
+    if request.method == "POST":
+
+        # Take in the data the user submitted and save it as form
+        form = NewEmailForm(request.POST)
+
+        # Check if form data is valid (server-side)
+        if (form.is_valid()):
+
+            # Isolate the email from the 'cleaned' version of form data
+            email = form.cleaned_data["email"]
+
+            # save the user email
+            user_email = email
+
+            # Redirect user to the pantry
+            return HttpResponseRedirect(reverse("pantry:index"))
+
+        else:
+
+            # If the form is invalid, re-render the page with existing information.
+            return render(request, "pantry/email.html", {
+                "form": form
+            })
+
+    return render(request, "pantry/email.html", {
+        "form": NewEmailForm()
     })

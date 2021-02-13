@@ -1,12 +1,15 @@
 {% extends "pantry/layout.html" %}
 
 {% block body %}
-    <h2>Remove Food Item:</h2>
-    <form action="{% url 'pantry:remove' %}" method="post">
+    <h2>Link Email to Recieve Expiration Alerts:</h2>
+    <p>We'll send you a quick email when you have food items that 
+    are about to expire.
+    </p>
+    <form action="{% url 'pantry:email' %}" method="post">
       {% csrf_token %}
       <ul id="fieldList">
         <li>
-          {{ form1 }}
+          {{ form }}
         </li>
       </ul>
         <input type="submit">
