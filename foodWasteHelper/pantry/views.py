@@ -15,7 +15,7 @@ class NewAmountForm(forms.Form):
     amount = forms.CharField(label="Amount")
 
 class NewExpirForm(forms.Form):
-    expir = forms.CharField(label="Expiration Date")
+    expir = forms.DateField(label="Expiration Date")
 
 def index(request):
     return render(request, 'pantry/index.html', {
@@ -84,8 +84,9 @@ def remove(request):
             for row in items:
                 if row['item'].lower() == food_item.lower():
                     items.remove(row)
+                    break
 
-            # Redirect user to list of tasks
+            # Redirect user to list of items
             return HttpResponseRedirect(reverse("pantry:index"))
 
         else:
