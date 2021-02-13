@@ -8,6 +8,7 @@ import datetime
 
 items = []
 user_email = ''
+now = datetime.datetime.now()
 
 # Create your views here.
 
@@ -24,9 +25,9 @@ class NewEmailForm(forms.Form):
     email = forms.CharField(label="Email")
 
 def index(request):
-    notify(request)
     return render(request, 'pantry/index.html', {
-        "items": items
+        "items": items,
+	'now': now
     })
 
 # add a new food item:
@@ -50,7 +51,7 @@ def add(request):
             expir = form3.cleaned_data["expir"]
 
             # Add the new item to our list of items
-            new_row = {'item': food_item, 'amount': amount, 'expir': expir, 'email_sent': False}
+            new_row = {'item': food_item, 'amount': amount, 'expir': expir}
             items.append(new_row)
 
             # Redirect user to list of tasks
@@ -173,13 +174,3 @@ def change(request):
         "form1": NewFoodItemForm(),
         'form2': NewAmountForm()
     })
-
-def notify(request):
-    now = datetime.datetime.now()
-    for row in items:
-        if (row['expir'].month == now.month and row['expir'].day == now.day and row['expir'].year == now.year and row['email_sent'] == False):
-            send_mail('Upcoming Food Expiration',
-              'Hello!\n\n' + row['item'].capitalize() + ' in your food pantry is about to expire.',
-              None,
-              [user_email])
-            row['email_sent'] = True

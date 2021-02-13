@@ -30,12 +30,15 @@
         <th>Item</th>
         <th>Amount</th>
         <th>Expiration Date</th>
-        <th>Email Has Been Sent</th>
       </tr>
       {% for row in items %}
         <tr>
 	  {% for key, value in row.items %}
-            <td>{{ value  }}</td>
+            {% if key == 'expir' and now.month == value.month and now.day == value.day and now.year == value.year %}
+              <td style='background-color:gold;'>{{ value  }}</td>
+            {% else %}
+              <td>{{ value  }}</td>
+            {% endif %}
 	  {% endfor %}
         </tr>
       {% endfor %}
