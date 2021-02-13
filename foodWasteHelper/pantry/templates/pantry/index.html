@@ -34,8 +34,14 @@
       {% for row in items %}
         <tr>
 	  {% for key, value in row.items %}
-            {% if key == 'expir' and now.month == value.month and now.day == value.day and now.year == value.year %}
-              <td style='background-color:gold;'>{{ value  }}</td>
+            {% if key == 'expir' %} 
+              {% if now.month >= value.month and now.day >= value.day and now.year >= value.year %}
+                <td style='background-color:tomato;'>{{ value  }}</td>
+              {% elif one_week.month >= value.month and one_week.day >= value.day and one_week.year >= value.year %}
+                <td style='background-color:yellow;'>{{ value  }}</td>
+              {% else %}
+                <td style='background-color:greenyellow;'>{{ value  }}</td>
+              {% endif %}
             {% else %}
               <td>{{ value  }}</td>
             {% endif %}

@@ -4,11 +4,12 @@ from django import forms
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
-import datetime
+from datetime import datetime, timedelta
 
 items = []
 user_email = ''
-now = datetime.datetime.now()
+now = datetime.now()
+one_week = now + timedelta(days=7)
 
 # Create your views here.
 
@@ -26,8 +27,9 @@ class NewEmailForm(forms.Form):
 
 def index(request):
     return render(request, 'pantry/index.html', {
-        "items": items,
-	'now': now
+        "items": sorted(items, key = lambda i: i['expir']),
+	'now': now,
+        'one_week': one_week
     })
 
 # add a new food item:
