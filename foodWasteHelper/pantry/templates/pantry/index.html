@@ -10,16 +10,27 @@
     </style>
   </head>
   <body>
+    <h2>Add a Food Item: </h2>
+
+    <label for="descript">Description:</label>
+    <input type="text" id="descript" name="descript"><br><br>
+    <label for="expir">Expiration Date:</label>
+    <input type="text" id="expir" name="expir"><br><br>
+    <input type="submit" value="Submit">
+
     <h2>Your Pantry:</h2>
     <table style="width:100%">
       <tr>
         <th>Description</th>
         <th>Expiration Date</th>
       </tr>
-      <tr>
-        <td>Sample Item</td>
-        <td>02/25/21</td>
-      </tr>
+      {% for item in items %}
+        <tr>
+	  {% for element in item %}
+            <td>{{ element  }}</td>
+	  {% endfor %}
+        </tr>
+      {% endfor %}
     </table>
   </body>
 </html>
