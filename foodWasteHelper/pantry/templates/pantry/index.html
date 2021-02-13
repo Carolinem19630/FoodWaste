@@ -1,36 +1,19 @@
-<!DOCTYPE html>
-<html lang='en'>
-  <head>
-    <title>Food Items</title>
-    <style>
-      table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-      }
-    </style>
-  </head>
-  <body>
-    <h2>Add a Food Item: </h2>
+{% extends "pantry/layout.html" %}
 
-    <label for="descript">Description:</label>
-    <input type="text" id="descript" name="descript"><br><br>
-    <label for="expir">Expiration Date:</label>
-    <input type="text" id="expir" name="expir"><br><br>
-    <input type="submit" value="Submit">
-
-    <h2>Your Pantry:</h2>
+{% block body %}
+    <a href="{% url 'pantry:add' %}">Add a New Food Item</a>
     <table style="width:100%">
       <tr>
-        <th>Description</th>
+        <th>Item</th>
+        <th>Amount</th>
         <th>Expiration Date</th>
       </tr>
-      {% for item in items %}
+      {% for row in items %}
         <tr>
-	  {% for element in item %}
-            <td>{{ element  }}</td>
+	  {% for key, value in row.items %}
+            <td>{{ value  }}</td>
 	  {% endfor %}
         </tr>
       {% endfor %}
     </table>
-  </body>
-</html>
+{% endblock %}
