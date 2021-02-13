@@ -50,7 +50,7 @@ def add(request):
             expir = form3.cleaned_data["expir"]
 
             # Add the new item to our list of items
-            new_row = {'item': food_item, 'amount': amount, 'expir': expir}
+            new_row = {'item': food_item, 'amount': amount, 'expir': expir, 'email_sent': False}
             items.append(new_row)
 
             # Redirect user to list of tasks
@@ -177,8 +177,9 @@ def change(request):
 def notify(request):
     now = datetime.datetime.now()
     for row in items:
-        if (row['expir'].month == now.month and row['expir'].day == now.day and row['expir'].year == now.year):
+        if (row['expir'].month == now.month and row['expir'].day == now.day and row['expir'].year == now.year and row['email_sent'] == False):
             send_mail('Upcoming Food Expiration',
               'Hello!\n\n' + row['item'].capitalize() + ' in your food pantry is about to expire.',
               None,
               [user_email])
+            row['email_sent'] = True
