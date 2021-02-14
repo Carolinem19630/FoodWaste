@@ -15,7 +15,7 @@
 Food waste by consumers is a large portion of all food waste. We wanted to create an application to help reduce food waste at the consumer level by giving consumers an easy tool to keep track of expiration dates.
 
 ## Screenshots
-![Demo Picture](https://github.com/carolinem19630/FoodWaste/main/foodWasteHelper.png?raw=true)
+![Demo Picture](https://github.com/Carolinem19630/FoodWaste/blob/master/img/foodWasteHelper.png)
 
 ## Technologies
 * Tech 1 - version 1.0
