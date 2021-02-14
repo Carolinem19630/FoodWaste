@@ -7,7 +7,6 @@
 * [Technologies and Languages](#technologies)
 * [Features](#features)
 * [Status](#status)
-* [Inspiration](#inspiration)
 * [Collaborators](#contact)
 
 ## General info
@@ -34,9 +33,6 @@ To-do list:
 
 ## Status
 Project is: _in progress_
-
-## Inspiration
-Add here credits. Project inspired by..., based on...
 
 ## Collaborators 
  * Maya Blitz - mlblitz@wisc.edu
