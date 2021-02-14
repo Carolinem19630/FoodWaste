@@ -1,4 +1,4 @@
-# Project Name
+# Food Waste Helper
 > Here goes your awesome project description!
 
 ## Table of contents
@@ -12,7 +12,7 @@
 * [Contact](#contact)
 
 ## General info
-Add more general information about project. What the purpose of the project is? Motivation?
+Food waste by consumers is a large portion of all food waste. We wanted to create an application to help reduce food waste at the consumer level by giving consumers an easy tool to keep track of expiration dates.
 
 ## Screenshots
 ![Example screenshot](./img/screenshot.png)
