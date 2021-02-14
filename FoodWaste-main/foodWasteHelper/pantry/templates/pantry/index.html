@@ -1,53 +1,53 @@
 {% extends "pantry/layout.html" %}
 
 {% block body %}
-    <h1>Welcome to your Food Waste Helper!</h1>
-    <hr>
-    <p>"In the United States, food waste is estimated at 
-    between 30–40 percent of the food supply. This figure, based on 
-    estimates from USDA’s Economic Research Service of 31 percent 
-    food loss at the retail and consumer levels, corresponded to 
-    approximately 133 billion pounds and $161 billion worth of food
-    in 2010. Wasted food is the single largest category of material 
-    placed in municipal landfills and represents nourishment 
-    that could have helped feed families in need." <br> -U.S. Food
-    & Drug Administration</p>
-    <p>Consumers can help reduce their food waste by keeping their
-    food organized and making sure to eat foods before they expire.
-    The Food Waste Helper can help you and your family reduce food
-    waste by keeping track of all of your foods and their 
-    expiration dates.</p>
-    <div id=options>
-    <a href="{% url 'pantry:add' %}">Add a New Food Item</a>
-    <br>
-    <a href="{% url 'pantry:remove' %}">Remove a Food Item</a>
-    <br>
-    <a href="{% url 'pantry:change' %}">Change Amount of a Food Item</a>
-    <br>
-    <a href="{% url 'pantry:email' %}">Recieve Alerts</a>
-    </div>
-    <hr>
+  <h1>Welcome to your Food Waste Helper!</h1>
+  <hr>
+  <p>"In the United States, food waste is estimated at 
+  between 30–40 percent of the food supply. This figure, based on 
+  estimates from USDA’s Economic Research Service of 31 percent 
+  food loss at the retail and consumer levels, corresponded to 
+  approximately 133 billion pounds and $161 billion worth of food
+  in 2010. Wasted food is the single largest category of material 
+  placed in municipal landfills and represents nourishment 
+  that could have helped feed families in need." <br> -U.S. Food
+  & Drug Administration</p>
+  <p>Consumers can help reduce their food waste by keeping their
+  food organized and making sure to eat foods before they expire.
+  The Food Waste Helper can help you and your family reduce food
+  waste by keeping track of all of your foods and their 
+  expiration dates.</p>
+  <div id=options>
+  <a href="{% url 'pantry:add' %}">Add a New Food Item</a>
+  <br>
+  <a href="{% url 'pantry:remove' %}">Remove a Food Item</a>
+  <br>
+  <a href="{% url 'pantry:change' %}">Change Amount of a Food Item</a>
+  <br>
+  <a href="{% url 'pantry:email' %}">Recieve Alerts</a>
+  </div>
+  <hr>
     <table style="width:100%">
       <tr>
         <th>Item</th>
         <th>Amount</th>
         <th>Expiration Date</th>
       </tr>
-      {% for row in items %}
-        <tr>
-	  {% for key, value in row.items %}
+        {% for row in items %}
+          <tr>
+          {% for key, value in row.items %}
             {% if key == 'expir' %} 
-              {% if now.month >= value.month and now.day >= value.day and now.year >= value.year %}
-                <td id="expired">{{ value  }}</td>
-              {% elif one_week.month >= value.month and one_week.day >= value.day and one_week.year >= value.year %}
-                <td id="almost_expired">{{ value  }}</td>
+              {% if now >= value %}
+                <td id= 'expired'>{{ value }}</td>
+              {% elif one_week >= value %}
+                <td id='almost_expired'>{{ value }}</td>
               {% else %}
-                <td id="not_expired">{{ value  }}</td>
+                <td id='not_expired'>{{ value }}</td>
               {% endif %}
             {% else %}
-              <td>{{ value  }}</td>
+              <td>{{ value }}</td>
             {% endif %}
-	  {% endfor %}
+          {% endfor %}
         </tr>
       {% endfor %}
     </table>

@@ -110,6 +110,7 @@ table {
     margin: auto;
     padding: 25px 50px 75px 100px;
     justify-content: center;
+    width:100%;
 }
 
 #options {
