@@ -4,12 +4,11 @@
 ## Table of contents
 * [General info](#general-info)
 * [Screenshots](#screenshots)
-* [Technologies](#technologies)
-* [Setup](#setup)
+* [Technologies and Languages](#technologies)
 * [Features](#features)
 * [Status](#status)
 * [Inspiration](#inspiration)
-* [Contact](#contact)
+* [Collaborators](#contact)
 
 ## General info
 Food waste by consumers is a large portion of all food waste. We wanted to create an application to help reduce food waste at the consumer level by giving consumers an easy tool to keep track of expiration dates.
@@ -17,33 +16,29 @@ Food waste by consumers is a large portion of all food waste. We wanted to creat
 ## Screenshots
 ![Demo Picture](foodWasteHelper.png)
 
-## Technologies
-* Tech 1 - version 1.0
-* Tech 2 - version 2.0
-* Tech 3 - version 3.0
-
-## Setup
-Describe how to install / setup your local environement / add link to demo version.
-
-## Code Examples
-Show examples of usage:
-`put-your-code-here`
+## Technologies and Languages
+* Django
+* Python
+* CSS
+* HTML
 
 ## Features
 List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
+* Add and delete pantry items
+* Tracks items by expiration date - color coding them red for expired, yellow for almost expired and green for not expired.
+* Saves user email 
 
 To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
+* Email users once a week with nearly expired goods
+* Gives users recommendations of ways to use or care for food
 
 ## Status
-Project is: _in progress_, _finished_, _no longer continue_ and why?
+Project is: _in progress_
 
 ## Inspiration
 Add here credits. Project inspired by..., based on...
 
-## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+## Collaborators 
+ * Maya Blitz - mlblitz@wisc.edu
+ * Caroline Machart - machart@wisc.edu
+ * Abigail Roh - acr2202@columbia.edu
