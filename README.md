@@ -1,5 +1,5 @@
 # Food Waste Helper
-> Here goes your awesome project description!
+> Takes user input and creates a table of food items, their amounts, and their expiration dates that can be removed, added, and adjusted by the user. The table is organized with the earliest expiration dates at the top, along with a special color-coding to further organize expiration dates. Red means expired, yellow means expiring in a week, and green means over a week until the expiration date.
 
 ## Table of contents
 * [General info](#general-info)
