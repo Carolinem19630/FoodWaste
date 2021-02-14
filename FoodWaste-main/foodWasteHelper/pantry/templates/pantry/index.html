@@ -36,11 +36,11 @@
 	  {% for key, value in row.items %}
             {% if key == 'expir' %} 
               {% if now.month >= value.month and now.day >= value.day and now.year >= value.year %}
-                <td id="item">{{ value  }}</td>
+                <td id="expired">{{ value  }}</td>
               {% elif one_week.month >= value.month and one_week.day >= value.day and one_week.year >= value.year %}
-                <td id="amount">{{ value  }}</td>
+                <td id="almost_expired">{{ value  }}</td>
               {% else %}
-                <td id="exp_date">{{ value  }}</td>
+                <td id="not_expired">{{ value  }}</td>
               {% endif %}
             {% else %}
               <td>{{ value  }}</td>

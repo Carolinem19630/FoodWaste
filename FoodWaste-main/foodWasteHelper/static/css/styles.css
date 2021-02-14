@@ -1,5 +1,7 @@
 body {
-    background-color: palegreen;
+    padding: 50px 50px 50px 50px;
+    background: url(../images/beige-tiles.png) repeat 0 0;
+    
 }
 
 table, th, td {
@@ -9,56 +11,77 @@ table, th, td {
 
 h1 {
     text-align: center;
-    font-family: verdana;
+    font-family: Corben;
+    border-color: darkslategray;
+    border-width: 2px;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #ccc;
+    
 }
 
 p {
-    font-family: verdana;
+    font-family: Nobile;
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 a {
-    font-family: verdana;
+    font-family: Nobile;
+    display: inline-block;
 }
 
 form { 
-    font-family: verdana; 
+    font-family: Nobile; 
 }
 
 ul { 
-    font-family: verdana;
+    font-family: Nobile;
 }
 
 li { 
-    font-family: verdana; 
+    font-family: Nobile; 
 }
 
 input {
-font-family: verdana;
-color: darkslategrey;
-background-color: white; 
+    font-family: Nobile;
+    color: darkslategrey;
+    background-color: white; 
 }
 
 th {
-font-family: verdana;
-color: white;
-background-color: darkslategrey;
+    font-family: Nobile;
+    font-size: large;
+    color: white;
+    background-color: darkslategrey;
+    text-align: center;
+    padding: 3px 3px 3px 3px;
 }
 
 tr {
-font-size: 82%;
-font-family: verdana;
-color: darkslategrey;
-background-color: white;
+    font-size: Medium;
+    font-family: Nobile;
+    color: darkslategrey;
+    background-color: white;
+    text-align: center;
 }
 
-#item {
+#expired {
     background-color:tomato;
 } 
 
-#quantity {
+#almost_expired {
     background-color:yellow;
 }
 
-#exp_date {
+#not_expired {
     background-color:greenyellow;
+}
+
+table {
+    margin: auto;
+    padding: 25px 50px 75px 100px;
+    justify-content: center;
 }
