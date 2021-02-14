@@ -3,12 +3,14 @@ from django.http import HttpResponse
 from django import forms
 from django.urls import reverse
 from django.http import HttpResponseRedirect
-from datetime import datetime, timedelta
+import datetime
 
 items = []
 user_email = ''
-now = datetime.now()
-one_week = (now + timedelta(days=7))
+now = datetime.date.today()
+one_week = now + datetime.timedelta(days=7)
+
+
 
 # Create your views here.
 

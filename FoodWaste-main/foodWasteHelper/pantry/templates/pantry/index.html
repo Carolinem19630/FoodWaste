@@ -37,28 +37,10 @@
           <tr>
           {% for key, value in row.items %}
             {% if key == 'expir' %} 
-              {% if one_week.year >= value.year %}
-                {% if one_week.month >= value.month %}
-                  {% if one_week.day >= value.day %}
-                    {% if now.year >= value.year %}
-                      {% if now.month >= value.month %}
-                        {% if now.day >= value.day %}
-                          <td id='expired'>{{ value }}</td>
-                        {% else %}
-                          <td id='almost_expired'>{{ value }}</td>
-                        {% endif %}
-                      {% else %}
-                        <td id='almost_expired'>{{ value }}</td>
-                      {% endif %}
-                    {% else %}
-                      <td id='almost_expired'>{{ value }}</td>
-                    {% endif %}
-                  {% else %}
-                    <td id='not_expired'>{{ value }}</td>
-                  {% endif %}
-                {% else %}
-                  <td id='not_expired'>{{ value }}</td>
-                {% endif %}
+              {% if now >= value %}
+                <td id= 'expired'>{{ value }}</td>
+              {% elif one_week >= value %}
+                <td id='almost_expired'>{{ value }}</td>
               {% else %}
                 <td id='not_expired'>{{ value }}</td>
               {% endif %}
