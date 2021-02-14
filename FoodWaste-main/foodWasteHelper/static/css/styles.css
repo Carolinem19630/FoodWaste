@@ -15,22 +15,48 @@ h1 {
     border-color: darkslategray;
     border-width: 2px;
     padding: 10px;
+    color: #B1CC74;
     text-shadow: 1px 1px 1px #ccc;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #5F1A37;
     
 }
 
 p {
     font-family: Nobile;
-    border-color: white;
+    border-color: #E8FCC2;
     border-width: 2px;
     border-style: solid;
     padding: 10px;
     border-radius: 5px;
+    color: #5F1A37
 }
 
 a {
     font-family: Nobile;
+    flex: 1;
+    color: #433E0E;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-width: 2px;
+    border-color: #103900;
+    border-style: solid;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
     display: inline-block;
+    font-size: large;
+    background-color: #B1CC74;
+}
+
+a:visited {
+    color: #E8FCC2;
 }
 
 form { 
@@ -55,7 +81,7 @@ th {
     font-family: Nobile;
     font-size: large;
     color: white;
-    background-color: darkslategrey;
+    background-color: #5F1A37;
     text-align: center;
     padding: 3px 3px 3px 3px;
 }
@@ -83,5 +109,10 @@ tr {
 table {
     margin: auto;
     padding: 25px 50px 75px 100px;
+    justify-content: center;
+}
+
+#options {
+    display: flex;
     justify-content: center;
 }
