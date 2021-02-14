@@ -175,3 +175,4 @@ def change(request):
         "form1": NewFoodItemForm(),
         'form2': NewAmountForm()
     })
+
